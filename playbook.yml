@@ -1,0 +1,22 @@
+---
+- name: Dev server
+  hosts: 108.61.174.104
+  become: yes
+
+  vars:
+    ntp_enabled: true
+    ntp_timezone: UTC
+    composer_home_owner: nginx
+    composer_home_group: nginx
+    composer_keep_updated: true
+
+  roles:
+    - geerlingguy.repo-epel
+    - geerlingguy.repo-remi
+    - geerlingguy.ntp
+    - geerlingguy.composer
+    - common
+    - php-fpm
+    - nginx
+    - mariadb
+    # - ntp
