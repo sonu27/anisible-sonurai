@@ -5,26 +5,17 @@
 # - name: disable selinux
 #   command: /sbin/setenforce 0
 
-# - name: Copy the EPEL repository definition
-#   copy: src=epel.repo dest=/etc/yum.repos.d/
-
 - name: Copy the NGINX repository definition
   copy: src=nginx.repo dest=/etc/yum.repos.d/
 
 - name: Copy the MariaDB repository definition
   copy: src=mariadb.repo dest=/etc/yum.repos.d/
 
-# - name: Create the GPG key for EPEL
-#   copy: src=RPM-GPG-KEY-EPEL-7 dest=/etc/pki/rpm-gpg
-
 - name: Create the GPG key for NGINX
   copy: src=RPM-GPG-KEY-NGINX dest=/etc/pki/rpm-gpg
 
 - name: Create the GPG key for MARIADB
   copy: src=RPM-GPG-KEY-MARIADB dest=/etc/pki/rpm-gpg
-
-- name: Add the remi repo
-  yum: name=http://rpms.remirepo.net/enterprise/remi-release-7.rpm state=present
 
 - name: Install common file
   yum: name={{ item }} enablerepo=remi,remi-php70 state=present
