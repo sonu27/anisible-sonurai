@@ -1,0 +1,9 @@
+---
+- name: Install MariaDB server
+  yum: name=MariaDB-server enablerepo=remi,remi-php70 state=present
+  notify: restart mariadb
+
+- name: Install MariaDB client
+  yum: name=MariaDB-client enablerepo=remi,remi-php70 state=present
+
+- service: name=mysql enabled=yes state=started
