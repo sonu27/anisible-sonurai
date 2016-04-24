@@ -29,3 +29,4 @@
 
 - git: repo=https://github.com/sonu27/sonurai.com.git dest=/www/prod update=no
 - composer: command=install working_dir=/www/prod no_dev=no prefer_dist=yes optimize_autoloader=yes
+#chgrp nginx /var/lib/php/*
