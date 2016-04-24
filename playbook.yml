@@ -19,3 +19,7 @@
     - php-fpm
     - nginx
     - mariadb
+
+#letsencrypt certonly --webroot --rsa-key-size 4096 -w /www/prod/web/ -d sonurai.com -d www.sonurai.com -d next.sonurai.com -w /www/work/web/ -d work.sonurai.com
+# 08 00 * * * /usr/bin/wget -q -O - http://108.61.174.104/bingwallpapers/update
+# 09 00 * * * /usr/bin/letsencrypt renew && systemctl restart nginx
